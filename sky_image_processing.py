@@ -420,7 +420,7 @@ def calculate_cloud_cover(features_df):
 def sky_image_processing_page():
     st.title("Sky Image Processing with Datetime Selection")
 
-    mask_image_path = '/Users/Barhm001/Desktop/CNN/SVM_CSI/Mask.png'  # Update this path
+    mask_image_path = 'Mask/Mask.png'  # Update this path
     mask_image = imread(mask_image_path, as_gray=True)
 
     chosen_date = st.date_input("Choose a date", datetime.now())
@@ -430,8 +430,8 @@ def sky_image_processing_page():
 
     datetime_str = f"{chosen_date.strftime('%Y%m%d')}{chosen_hour:02d}{chosen_minute:02d}{chosen_second:02d}"
 
-    sky_images_folder = '/Users/Barhm001/Desktop/DT/20240324/'  # Update this path
-    output_folder = '/Users/Barhm001/Desktop/DT/streamlit/'  # Update this path
+    sky_images_folder = '20240324'  # Update this path
+    output_folder = 'Output'  # Update this path
 
     if st.button("Process Image"):
         matching_files = [f for f in os.listdir(sky_images_folder) if f.startswith(datetime_str) and f.lower().endswith(('.png', '.jpg', '.jpeg'))]
